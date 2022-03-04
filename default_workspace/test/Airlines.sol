@@ -27,6 +27,9 @@ contract Airlines {
         membership[msg.sender] = 1;
         balanceDetails[msg.sender].escrow = msg.value;
     }
+    function test(address addressValue) public pure returns(address){
+        return addressValue;
+    }
     function register() public payable {
         address AirlineA = msg.sender;
         membership[AirlineA] = 1;
@@ -60,7 +63,7 @@ contract Airlines {
         uint amt = msg.value;
 
         balanceDetails[toAirline].escrow = balanceDetails[toAirline].escrow + amt;
-        balanceDetails[fromAirline].escrow = balanceDetails[fromAirline.escrow - amt];
+        balanceDetails[fromAirline].escrow = balanceDetails[fromAirline].escrow - amt;
 
         toAirline.transfer(amt);
     }
