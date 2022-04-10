@@ -15,4 +15,10 @@ contract('Test', ([deployer, user1, user2] )=>{
 
         assert.equal(some, 5)
     })
+
+
+    it.only('팟 값 확인', async ()=>{
+        const pot = await test.getPot()
+        assert.equal(pot, 0)
+    })
 })
