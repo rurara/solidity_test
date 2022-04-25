@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.13+commit.abaa5c0e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -418,7 +418,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"solidity_test/default_workspace/test/simplecoin/mynft.sol": "pptestNFT"
+			"default_workspace/test/simplecoin/mynft.sol": "pptestNFT"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -512,7 +512,7 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"solidity_test/default_workspace/test/simplecoin/mynft.sol": {
+		"default_workspace/test/simplecoin/mynft.sol": {
 			"keccak256": "0x96dd7cd3dcec539e1d81b8d7339e6cdca288b6fe65023efca3813914373270a3",
 			"license": "MIT",
 			"urls": [
