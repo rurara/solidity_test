@@ -29,7 +29,9 @@ contract Test {
     event FAIL(uint256 index, address bettor, uint256 amount, bytes1 challenges, uint256 answerBlockNumber);
     event REFUND(uint256 index, address bettor, uint256 amount, bytes1 challenges, uint256 answerBlockNumber);
     constructor(){
-        owner = msg.sender;
+        // payable(msg.sender);
+
+        owner = payable(msg.sender);
     }
 
     function getSomeValue() public pure returns (uint256 value){
@@ -55,6 +57,7 @@ contract Test {
         uint256 cur;
         uint transferAmount;
 
+        BettingResult currentBlockResult;
         BetInfo memory b;
         BlockStatus currentBlockStatus;
         for(cur=_head; cur<_tail; cur++){
@@ -64,24 +67,24 @@ contract Test {
 
             if(currentBlockStatus == BlockStatus.checkable){
 
-                bytes32 answerBlockHash = getAnswerBlockHash(b.answerBlockNumber)
-                currentBlockResult = isMatch(b.challenges, answerBlockHash)
+                bytes32 answerBlockHash = getAnswerBlockHash(b.answerBlockNumber);
+                currentBlockResult = isMatch(b.challenges, answerBlockHash);
 
 
                 if(currentBlockResult == BettingResult.Win){
-                    transferAfterPayingFee(b.bettor, _pot + BET_AMOUNT)
+                    transferAfterPayingFee(b.bettor, _pot + BET_AMOUNT);
                     _pot = 0;
 
-                    emit WIN(cur, b.bettor, transferAmount, b.challenges, answerBlockHash[0], b.answerBlockNumber);
+                    // emit WIN(cur, b.bettor, transferAmount, b.challenges, answerBlockHash[0], b.answerBlockNumber);
 
                 }else if (currentBlockResult == BettingResult.Fail){
-                    _pot +- BET_AMOUNT;
-                    emit FAIL(cur, b.bettor, 0, b.challenges, answerBlockHash[0], b.answerBlockNumber);
+                    _pot -= BET_AMOUNT;
+                    // emit FAIL(cur, b.bettor, 0, b.challenges, answerBlockHash[0], b.answerBlockNumber);
 
                 }else if (currentBlockResult == BettingResult.Draw){
 
                     transferAmount = transferAfterPayingFee(b.bettor, BET_AMOUNT);
-                    emit DRAW(cur, b.bettor, transferAmount, b.challenges, answerBlockHash[0], b.answerBlockNumber);
+                    // emit DRAW(cur, b.bettor, transferAmount, b.challenges, answerBlockHash[0], b.answerBlockNumber);
 
                 }
             } else if(currentBlockStatus == BlockStatus.NotRevealed){
@@ -109,7 +112,7 @@ contract Test {
     }
 
     function setAnswerForTest(bytes32 answer) public returns (bool result){
-        require(msg.sender == owner, "only master")
+        require(msg.sender == owner, "only master");
         answerForTest = answer;
         return true;
     }
