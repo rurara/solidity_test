@@ -1,4 +1,5 @@
-const Web3 = require('web3')
-const web3 = new Web3();
+// const Web3 = require('web3')
+// const web3 = new Web3();
 
-console.log(web3)
+console.log(111)
+// console.log(web3)
