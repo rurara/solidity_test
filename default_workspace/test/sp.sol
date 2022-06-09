@@ -100,6 +100,10 @@ contract sp {
 
         
     }
+    function balanceOf() public view return(uint){
+        SP.balanceOf
+        return
+    }
     function thisA() public view returns(address){
         return address(this);
     }
