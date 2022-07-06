@@ -1,0 +1,7 @@
+npx create-react-app my-app
+cd my-app
+yarn
+
+Install dependencies:
+
+yarn add web3@^1.7.0 react-scripts@^4.0.0
