@@ -1,2 +1,3 @@
 node_modules
 /default_workspace/test/artifacts/build-info/*
+serviceAccountKey.json
