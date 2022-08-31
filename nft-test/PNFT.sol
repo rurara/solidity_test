@@ -15,8 +15,9 @@ interface IPNFT721{
 // 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
 // 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
 contract PNFT is Ownable, ERC721URIStorage, IPNFT721 {      
-    
-    constructor() ERC721("yayahoho", "YAHO") {
+    address _admin;
+    constructor(address admin) ERC721("yayahoho", "YAHO") {
+        _admin = 
     }
     
     //  transact to pProjectController.generatePERC721 errored: Error encoding arguments: Error: types/values length mismatch (count={"types":3,"values":4}, value={"types":["address","uint256","string"],"values":["0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB","67","{",":"]}, code=INVALID_ARGUMENT, version=abi/5.5.0)
